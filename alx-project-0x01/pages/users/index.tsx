@@ -1,18 +1,18 @@
 import Header from "@/components/layout/Header";
 import UserCard from "@/components/common/UserCard";
 import UserModal from "@/components/common/UserModal";
-import { UserData } from "@/interfaces";
+import { UserProps } from "@/interfaces";
 import { useState } from "react";
 
 interface UsersPageProps {
-  users: UserData[];
+  users: UserProps[];
 }
 
 const Users: React.FC<UsersPageProps> = ({ users }) => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [localUsers, setLocalUsers] = useState<UserData[]>(users);
+  const [localUsers, setLocalUsers] = useState<UserProps[]>(users);
 
-  const handleAddUser = (newUser: UserData) => {
+  const handleAddUser = (newUser: UserProps) => {
     setLocalUsers([...localUsers, { ...newUser, id: localUsers.length + 1 }]);
   };
 
@@ -30,7 +30,7 @@ const Users: React.FC<UsersPageProps> = ({ users }) => {
           </button>
         </div>
         <div className="grid grid-cols-3 gap-4 mt-4">
-          {localUsers?.map((user: UserData, key: number) => (
+          {localUsers?.map((user: UserProps, key: number) => (
             <UserCard key={key} {...user} />
           ))}
         </div>

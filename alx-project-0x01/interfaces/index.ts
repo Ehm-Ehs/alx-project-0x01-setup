@@ -11,13 +11,17 @@ export interface PostProps {
     body: string;
   }
   
+export interface ButtonProps {
+  title: string;
+  styles: string;
+}
   export interface PostModalProps {
     onClose: () => void;
     onSubmit: (post: PostData) => void;
   }
   
  // UserProps Interface
-export interface UserData {
+export interface UserProps {
     id?: number;
     name: string;
     username: string;
@@ -43,6 +47,6 @@ export interface UserData {
   
   export interface UserModalProps {
     onClose: () => void;
-    onSubmit: (user: UserData) => void;
+    onSubmit: (user: UserProps) => void;
   }
   
