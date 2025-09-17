@@ -49,4 +49,22 @@ export interface UserProps {
     onClose: () => void;
     onSubmit: (user: UserProps) => void;
   }
+  export interface PostData {
+    userId: number;
+    id?: number;
+    title: string;
+    body: string;
+  }
   
+  export interface PostModalProps {
+    onClose: () => void;
+    onSubmit: (post: PostData) => void;
+  }
+  
+  // you probably already have PostProps from Task 2:
+  export interface PostProps {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+  }
