@@ -5,12 +5,12 @@ import { UserProps } from "@/interfaces";
 import { useState } from "react";
 
 interface UsersPageProps {
-  users: UserProps[];
+  posts: UserProps[];
 }
 
-const Users: React.FC<UsersPageProps> = ({ users }) => {
+const Users: React.FC<UsersPageProps> = ({ posts }) => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [localUsers, setLocalUsers] = useState<UserProps[]>(users);
+  const [localUsers, setLocalUsers] = useState<UserProps[]>(posts);
 
   const handleAddUser = (newUser: UserProps) => {
     setLocalUsers([...localUsers, { ...newUser, id: localUsers.length + 1 }]);
@@ -48,11 +48,11 @@ const Users: React.FC<UsersPageProps> = ({ users }) => {
 
 export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await response.json();
+  const posts = await response.json();
 
   return {
     props: {
-      users,
+      posts,
     },
   };
 }
