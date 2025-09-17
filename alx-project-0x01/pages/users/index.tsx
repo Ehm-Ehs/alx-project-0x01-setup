@@ -29,8 +29,10 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
             Add User
           </button>
         </div>
+
+        {/* ✅ use posts.map directly here */}
         <div className="grid grid-cols-3 gap-4 mt-4">
-          {localUsers?.map((user: UserProps, key: number) => (
+          {posts.map((user: UserProps, key: number) => (
             <UserCard key={key} {...user} />
           ))}
         </div>
